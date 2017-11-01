@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { HeroListComponent } from './hero-list/hero-list.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HeroListComponent],
   imports: [BrowserModule, FormsModule, HttpModule],
   providers: [],
   bootstrap: [AppComponent]
