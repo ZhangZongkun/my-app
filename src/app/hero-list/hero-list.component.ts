@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/finally';
 import { Hero } from '../model/data-model';
+import { HeroService } from '../service/hero.service';
 
 @Component({
   selector: 'app-hero-list',
@@ -12,10 +15,20 @@ export class HeroListComponent implements OnInit {
   isLoading = false;
   selectedHero: Hero;
 
-  constructor() {
+  constructor(private heroService: HeroService) {
   }
 
   ngOnInit() {
   }
 
+  getHeroes() {
+    this.isLoading = true;
+    this.heroes = this.heroService.getHeroes()
+      .finally(() => this.isLoading = false);
+    this.selectedHero = undefined;
+  }
+
+  select(hero: Hero) {
+    this.selectedHero = hero;
+  }
 }
