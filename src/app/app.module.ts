@@ -6,10 +6,12 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
 
+import { HeroService } from './service/hero.service';
+
 @NgModule({
   declarations: [AppComponent, HeroListComponent],
   imports: [BrowserModule, FormsModule, HttpModule],
-  providers: [],
+  providers: [HeroService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
