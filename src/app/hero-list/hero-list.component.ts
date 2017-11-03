@@ -19,12 +19,16 @@ export class HeroListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getHeroes();
   }
 
   getHeroes() {
     this.isLoading = true;
-    this.heroes = this.heroService.getHeroes()
-      .finally(() => this.isLoading = false);
+    this.heroes = this.heroService.getHeroes();
+    // .finally(() => this.isLoading = false);
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
     this.selectedHero = undefined;
   }
 

@@ -20,6 +20,16 @@ export const heroes: Hero[] = [
     id: 1,
     name: 'Whirlwind',
     addresses: []
+  },
+  {
+    id: 2,
+    name: 'King James',
+    addresses: []
+  },
+  {
+    id: 3,
+    name: 'Jerry Smith',
+    addresses: []
   }
 ];
 
