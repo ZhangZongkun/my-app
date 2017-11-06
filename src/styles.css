@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* Navigation link styles */
 button {
   font-family: Arial;
   background-color: #eee;
@@ -26,6 +25,7 @@ a {
   cursor: hand;
 }
 
+/* Navigation link styles */
 nav a {
   padding: 5px 10px;
   text-decoration: none;
@@ -45,7 +45,7 @@ nav a:hover {
   background-color: #CFD8DC;
 }
 
-nav a.active {
+nav a:active {
   color: #039be5;
 }
 
