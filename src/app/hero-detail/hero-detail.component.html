@@ -1,20 +1,3 @@
-<form [formGroup]="heroForm" (ngSubmit)="onSubmit()" novalidate>
-  <div style="margin-bottom: 1em">
-    <button type="submit" [disabled]="heroForm.pristine"
-            class="btn btn-success">Save
-    </button> &nbsp;
-    <button type="reset" (click)="revert()" [disabled]="heroForm.pristine"
-            class="btn btn-danger">Revert
-    </button>
-  </div>
-
-  <div class="form-group">
-    <label class="center-block">Name:
-      <input class="form-control" formControlName="name">
-    </label>
-  </div>
-
-  <p>heroForm value: {{heroForm.value | json}}</p>
-
-  <div *ngFor="let name of nameChangeLog">{{name}}</div>
-</form>
+<p>
+  hero-detail works! {{hero.name}}
+</p>
