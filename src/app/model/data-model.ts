@@ -1,7 +1,3 @@
-/**
- * Created by Administrator on 2017/11/1.
- */
-
 export class Hero {
   id = 0;
   name = '';
