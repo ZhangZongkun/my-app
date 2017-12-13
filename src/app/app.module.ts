@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
@@ -11,7 +11,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 @NgModule({
   declarations: [AppComponent, HeroListComponent, HeroDetailComponent],
-  imports: [BrowserModule, FormsModule, HttpModule, ReactiveFormsModule],
+  imports: [BrowserModule, FormsModule, HttpClientModule, ReactiveFormsModule],
   providers: [HeroService],
   bootstrap: [AppComponent]
 })

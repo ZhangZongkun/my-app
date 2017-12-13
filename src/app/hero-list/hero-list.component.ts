@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/finally';
 import { Hero } from '../model/data-model';
 import { HeroService } from '../service/hero.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-hero-list',
@@ -13,12 +14,17 @@ export class HeroListComponent implements OnInit {
   heroes: Observable<Hero[]>;
   isLoading = false;
   selectedHero: Hero;
+  results: string[];
 
-  constructor(private heroService: HeroService) {
+  constructor(private http: HttpClient,
+              private heroService: HeroService) {
   }
 
   ngOnInit() {
     this.getHeroes();
+    this.http.get('assets/api/items.json').subscribe(data => {
+      this.results = data['results'];
+    });
   }
 
   getHeroes() {
