@@ -13,4 +13,4 @@
   <app-hero-detail [hero]="selectedHero"></app-hero-detail>
 </div>
 
-<p>{{results | json}}</p>
+<p>{{results | async | json}}</p>

@@ -14,7 +14,7 @@ export class HeroListComponent implements OnInit {
   heroes: Observable<Hero[]>;
   isLoading = false;
   selectedHero: Hero;
-  results: string[];
+  results: Observable<any>;
 
   constructor(private http: HttpClient,
               private heroService: HeroService) {
@@ -22,9 +22,10 @@ export class HeroListComponent implements OnInit {
 
   ngOnInit() {
     this.getHeroes();
-    this.http.get('assets/api/items.json').subscribe(data => {
-      this.results = data['results'];
-    });
+    this.results = this.http.get('assets/api/items.json')
+    // .subscribe(data => {
+    //   this.results = data['results'];
+    // });
   }
 
   getHeroes() {
