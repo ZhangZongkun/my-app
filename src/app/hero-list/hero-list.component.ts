@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/finally';
 import { Hero } from '../model/data-model';
 import { HeroService } from '../service/hero.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-hero-list',
@@ -22,7 +22,7 @@ export class HeroListComponent implements OnInit {
 
   ngOnInit() {
     this.getHeroes();
-    this.results = this.http.get('assets/api/items.json')
+    this.results = this.http.get('assets/api/items.json');
     // .subscribe(data => {
     //   this.results = data['results'];
     // });
