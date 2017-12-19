@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/finally';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
 import { Hero } from '../model/data-model';
 import { HeroService } from '../service/hero.service';
 
@@ -21,6 +23,9 @@ export class HeroListComponent implements OnInit {
   }
 
   ngOnInit() {
+    Observable.of(1, 2, 3).map(x => x + '!!!')
+      .subscribe(x => console.log(x));
+
     this.getHeroes();
     this.results = this.http.get('assets/api/items.json');
     // .subscribe(data => {
