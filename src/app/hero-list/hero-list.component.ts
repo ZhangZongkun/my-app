@@ -26,6 +26,9 @@ export class HeroListComponent implements OnInit {
     // .subscribe(data => {
     //   this.results = data['results'];
     // });
+    this.http.get('assets/api/items.json').toPromise()
+      .then(response => response['results'])
+      .then(response => console.log(response[0]));
   }
 
   getHeroes() {
