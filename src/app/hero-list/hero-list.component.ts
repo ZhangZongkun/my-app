@@ -25,6 +25,24 @@ export class HeroListComponent implements OnInit {
   ngOnInit() {
     Observable.of(1, 2, 3).map(x => x + '!!!')
       .subscribe(x => console.log(x));
+    let observable = Observable.create(function subsribe(observer) {
+      observer.next(11);
+      observer.next(22);
+      // observer.error('something went really wrong...');
+      observer.complete();
+    });
+    let myObserver = {
+      next: x => console.log('Observer got a next value: ' + x),
+      error: err => console.error('Observer got an error: ' + err),
+      complete: () => console.log('Observer got a complete notification')
+    };
+    observable.subscribe(myObserver);
+    // or
+    observable.subscribe(
+      x => console.log('Observer got a next value: ' + x),
+      err => console.error('Observer got an error: ' + err),
+      () => console.log('Observer got a complete notification')
+    );
 
     this.getHeroes();
     this.results = this.http.get('assets/api/items.json');
