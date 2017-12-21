@@ -2,14 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/finally';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/throttleTime';
-import 'rxjs/add/operator/scan';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/operator/finally';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/throttleTime';
+import 'rxjs/add/operator/scan';
+import 'rxjs/add/operator/delay';
 import { Hero } from '../model/data-model';
 import { HeroService } from '../service/hero.service';
 
@@ -38,9 +39,10 @@ export class HeroListComponent implements OnInit {
   }
 
   rxTest() {
-    Observable.of(1, 2, 3).map(x => x + '!!!')
+    Observable.of('a', 'b', 'c').map(x => '#' + x)
+      .delay(500)
       .subscribe(x => this.message.push(x));
-    Observable.from(['hello', 'buddy'])
+    Observable.from(['hello', 'world'])
       .subscribe(x => this.message.push(x));
     let subscription = Observable.interval(1000)
       .subscribe(x => this.message.push(x));
